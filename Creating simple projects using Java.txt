@@ -1,0 +1,53 @@
+Creating simple projects using Java 
+
+Gusse the number ........
+
+package Project;
+
+import java.util.Scanner;
+import java.util.Random;
+
+class Game{
+    int noOfGuesses = 0 ;
+    public int number;
+    public int noofguess;
+    public int inputnumber ;
+
+    public int getNoofguess() {
+        return noofguess;
+    }
+
+    public void setNoofguess(int noofguess) {
+        this.noofguess = noofguess;
+    }
+
+    void takeUserInput(){
+        System.out.print("Guess the number :------>>>>>  ");
+        Scanner sc = new Scanner(System.in);
+        inputnumber = sc.nextInt();
+    }
+
+    boolean isCorrectNumber(){
+        noOfGuesses++;
+       if(inputnumber == number){
+           System.out.format("Congratulations !!!! You guess the number : It was %d\n You guess in %d attemp " , number , noOfGuesses);
+           return true;
+       }
+       else if (inputnumber < number ){
+           System.out.println("OOPS!! Small number , *Think more* ");
+       }
+       else if(inputnumber > number){
+           System.out.println("OOPS!!!! Large number , *Think less*");
+        }
+       return false;
+    }
+
+    Game(){
+        Random rand = new Random();
+        this.number = rand.nextInt(100);
+    }
+
+
+}
+
+
